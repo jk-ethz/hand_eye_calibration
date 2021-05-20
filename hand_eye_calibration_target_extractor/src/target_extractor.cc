@@ -3,6 +3,7 @@
 
 #include <aslam/calibration/target-aprilgrid.h>
 #include <aslam/cameras/camera.h>
+#include <aslam/cameras/camera-factory.h>
 #include <aslam/common/pose-types.h>
 #include <aslam/geometric-vision/pnp-pose-estimator.h>
 #include <glog/logging.h>
@@ -232,8 +233,8 @@ int main(int argc, char** argv) {
       }
     }
 
-    aslam::Camera::Ptr camera;
-    camera->deserializeFromFile(FLAGS_eval_camera_yaml);
+    YAML::Node node = YAML::LoadFile(FLAGS_eval_camera_yaml);
+    aslam::Camera::ConstPtr camera = aslam::createCamera(node);
     CHECK(camera);
 
     constexpr bool kRunNonlinearRefinement = true;

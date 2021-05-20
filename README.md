@@ -101,6 +101,10 @@ or directly by changing into this directory (e.g. `~/catkin_ws/src/hand_eye_cali
 ./bin/<tool>.py [arguments]
 ```
 
+### Recording
+
+For recording from RealSense cameras, you can use the [RealsenseRecorder](https://github.com/jk-ethz/RealsenseRecorder) running `roslaunch realsense_recorder realsense_recorder_hand_eye_calibration`.
+
 ### Step-by-Step Calibration
 
 A typical use case consists of the following steps (here using ROS):
